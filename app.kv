@@ -1,0 +1,150 @@
+#:kivy 1.9
+MDFloatLayout:
+    md_bg_color: 1, 1, 1, 1
+    Image:
+        source: "calculator.png"
+        size_hint: .2, .2
+        pos_hint: {"center_x": .5, "center_y": .91}
+
+    MDLabel:
+        text: "Calculadora de EMI"
+        pos_hint: {"center_x": .5, "center_y": .8}
+        font_name: "BSono"
+        font_size: "28sp"
+        halign: "center"
+    MDFloatLayout:
+        size_hint: .9, .1
+        pos_hint: {"center_x": .5, "center_y": .7}
+        canvas:
+            Color:
+                rgb: 240/255, 240/255, 240/255, 1
+            RoundedRectangle:
+                size: self.size
+                pos: self.pos
+                radius: [6]
+    MDLabel:
+        text: "$"
+        pos_hint: {"center_x": .55, "center_y": .7}
+        font_name: "Sono"
+        font_size: "22sp"
+        padding_x: "12dp"
+    TextInput:
+        id: montante
+        hint_text: "Montante"
+        size_hint: .9, None
+        pos_hint: {"center_x": .55, "center_y": .7}
+        height: self.minimum_height
+        font_size: "20sp"
+        hint_text_color: 252/255, 151/255, 44/255, 1
+        background_color: 1, 1, 1, 0
+        padding: 18
+        cursor_color: 0, 0, 0, 1
+        multiline: False
+    MDFloatLayout:
+        size_hint: .9, .1
+        pos_hint: {"center_x": .5, "center_y": .57}
+        canvas:
+            Color:
+                rgb: 240/255, 240/255, 240/255, 1
+            RoundedRectangle:
+                size: self.size
+                pos: self.pos
+                radius: [6]
+    MDLabel:
+        text: "D"
+        pos_hint: {"center_x": .55, "center_y": .57}
+        font_name: "Sono"
+        font_size: "22sp"
+        padding_x: "12dp"
+    TextInput:
+        id: pagamento_inicial
+        text: '0'
+        hint_text: "Pagamento Inicial"
+        size_hint: .9, None
+        pos_hint: {"center_x": .55, "center_y": .57}
+        height: self.minimum_height
+        font_size: "20sp"
+        hint_text_color: 252/255, 151/255, 44/255, 1
+        background_color: 1, 1, 1, 0
+        padding: 18
+        cursor_color: 0, 0, 0, 1
+        multiline: False
+    MDFloatLayout:
+        size_hint: .9, .1
+        pos_hint: {"center_x": .5, "center_y": .44}
+        canvas:
+            Color:
+                rgb: 240/255, 240/255, 240/255, 1
+            RoundedRectangle:
+                size: self.size
+                pos: self.pos
+                radius: [6]
+    MDLabel:
+        text: "%"
+        pos_hint: {"center_x": .55, "center_y": .44}
+        font_name: "Sono"
+        font_size: "22sp"
+        padding_x: "12dp"
+    TextInput:
+        id: avaliacao
+        hint_text: "Avaliação"
+        size_hint: .9, None
+        pos_hint: {"center_x": .55, "center_y": .44}
+        height: self.minimum_height
+        font_size: "20sp"
+        hint_text_color: 252/255, 151/255, 44/255, 1
+        background_color: 1, 1, 1, 0
+        padding: 18
+        cursor_color: 0, 0, 0, 1
+        multiline: False
+    MDFloatLayout:
+        size_hint: .9, .1
+        pos_hint: {"center_x": .5, "center_y": .31}
+        canvas:
+            Color:
+                rgb: 240/255, 240/255, 240/255, 1
+            RoundedRectangle:
+                size: self.size
+                pos: self.pos
+                radius: [6]
+    MDLabel:
+        text: "T"
+        pos_hint: {"center_x": .55, "center_y": .31}
+        font_name: "Sono"
+        font_size: "22sp"
+        padding_x: "12dp"
+    TextInput:
+        id: prazo
+        hint_text: "Prazo de Emprestimo"
+        size_hint: .9, None
+        pos_hint: {"center_x": .55, "center_y": .31}
+        height: self.minimum_height
+        font_size: "20sp"
+        hint_text_color: 252/255, 151/255, 44/255, 1
+        background_color: 1, 1, 1, 0
+        padding: 18
+        cursor_color: 0, 0, 0, 1
+        multiline: False
+    MDLabel:
+        id: resultado
+        text: ""
+        pos_hint: {"center_x": .5, "center_y": .2}
+        halign:"center"
+        font_size: "20sp"
+        font_name: "BSono"
+    Button:
+        text: "Calcular"
+        size_hint: .9, .1
+        pos_hint: {"center_x": .5, "center_y": .09}
+        font_name: "Sono"
+        font_size: "20sp"
+        background_color: 1, 1, 1, 0
+        color: 1, 1, 1, 1
+        on_release: app.calcular(montante,pagamento_inicial, avaliacao, prazo)
+        canvas.before:
+            Color:
+                rgb: rgba(252, 119, 44, 255)
+            RoundedRectangle:
+                size: self.size
+                pos: self.pos
+                radius: [6]
